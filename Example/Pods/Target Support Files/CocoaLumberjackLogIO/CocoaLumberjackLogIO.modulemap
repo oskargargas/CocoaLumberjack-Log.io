@@ -1,0 +1,6 @@
+framework module CocoaLumberjackLogIO {
+  umbrella header "CocoaLumberjackLogIO-umbrella.h"
+
+  export *
+  module * { export * }
+}

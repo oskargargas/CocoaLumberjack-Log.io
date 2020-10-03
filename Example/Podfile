@@ -1,0 +1,12 @@
+use_frameworks!
+
+platform :ios, '9.3'
+
+target 'CocoaLumberjackLogIO_Example' do
+  pod 'CocoaLumberjack'
+  pod 'CocoaLumberjackLogIO', :path => '../'
+
+  target 'CocoaLumberjackLogIO_Tests' do
+    inherit! :search_paths
+  end
+end

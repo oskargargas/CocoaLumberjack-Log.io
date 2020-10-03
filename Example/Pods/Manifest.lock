@@ -1,0 +1,30 @@
+PODS:
+  - CocoaAsyncSocket (7.6.4)
+  - CocoaLumberjack (3.6.2):
+    - CocoaLumberjack/Core (= 3.6.2)
+  - CocoaLumberjack/Core (3.6.2)
+  - CocoaLumberjackLogIO (0.0.1):
+    - CocoaAsyncSocket (~> 7.6.4)
+    - CocoaLumberjack (~> 3.6.0)
+
+DEPENDENCIES:
+  - CocoaLumberjack
+  - CocoaLumberjackLogIO (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - CocoaAsyncSocket
+    - CocoaLumberjack
+
+EXTERNAL SOURCES:
+  CocoaLumberjackLogIO:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
+  CocoaLumberjack: bd155f2dd06c0e0b03f876f7a3ee55693122ec94
+  CocoaLumberjackLogIO: f8543b547feae27c1fe0dedbe44909ebebb4a5c9
+
+PODFILE CHECKSUM: 46cd5ff42645b7c6867225fff4054996d37ddc3d
+
+COCOAPODS: 1.9.3
