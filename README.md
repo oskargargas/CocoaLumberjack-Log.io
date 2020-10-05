@@ -1,6 +1,6 @@
 # CocoaLumberjackLogIO
 
-[![CI Status](https://img.shields.io/travis/sergiog90/CocoaLumberjackLogIO.svg?style=flat)](https://travis-ci.org/sergiog90/CocoaLumberjack-Log.io)
+[![CI Status](https://api.travis-ci.org/sergiog90/CocoaLumberjack-Log.io.svg?style=flat)](https://travis-ci.org/sergiog90/CocoaLumberjack-Log.io)
 [![Version](https://img.shields.io/cocoapods/v/CocoaLumberjackLogIO.svg?style=flat)](https://cocoapods.org/pods/CocoaLumberjackLogIO)
 [![License](https://img.shields.io/cocoapods/l/CocoaLumberjackLogIO.svg?style=flat)](https://cocoapods.org/pods/CocoaLumberjackLogIO)
 [![Platform](https://img.shields.io/cocoapods/p/CocoaLumberjackLogIO.svg?style=flat)](https://cocoapods.org/pods/CocoaLumberjackLogIO)
