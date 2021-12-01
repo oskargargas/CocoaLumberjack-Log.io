@@ -26,6 +26,6 @@ Pod::Spec.new do |s|
 
   s.source_files = 'CocoaLumberjackLogIO/Classes/**/*'
 
-  s.dependency 'CocoaAsyncSocket', '~> 7.6.4'
-  s.dependency 'CocoaLumberjack', '~> 3.6.0'
+  s.dependency 'CocoaAsyncSocket', '~> 7.6'
+  s.dependency 'CocoaLumberjack', '~> 3.6'
 end
