@@ -5,35 +5,20 @@
 //  Created by Sergio on 05/10/2020.
 //
 
+import os
 import Foundation
 import CocoaAsyncSocket
 
 extension LogIOLogger: GCDAsyncSocketDelegate {
     public func socket(_ sock: GCDAsyncSocket, didConnectTo url: URL) {
-        debugPrint("\(#function). Url: \(url)")
+        os_log("[LogIO] %s. Url: %s", type: .debug, #function, url.debugDescription)
     }
 
     public func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
-        debugPrint("\(#function). Host: \(host) Port: \(port)")
-    }
-
-    public func socket(_ sock: GCDAsyncSocket, didWriteDataWithTag tag: Int) {
-        debugPrint("\(#function). Tag: \(tag)")
-    }
-
-    public func socket(_ sock: GCDAsyncSocket, didReceive trust: SecTrust, completionHandler: @escaping (Bool) -> Void) {
-        debugPrint(#function)
-    }
-
-    public func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
-        debugPrint("\(#function). Tag: \(tag)")
-    }
-
-    public func socket(_ sock: GCDAsyncSocket, didReadPartialDataOfLength partialLength: UInt, tag: Int) {
-        debugPrint(#function)
+        os_log("[LogIO] %s. Host: %s:%d", type: .debug, #function, host, port)
     }
 
     public func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
-        debugPrint("\(#function). Error: \(err?.localizedDescription ?? "-")")
+        os_log("[LogIO] %s. Error: %s", type: .error, #function, err?.localizedDescription ?? "-")
     }
 }

@@ -5,6 +5,7 @@
 //  Created by Sergio García on 03/10/2020.
 //
 
+import os
 import Foundation
 import CocoaAsyncSocket
 import CocoaLumberjack
@@ -40,11 +41,11 @@ public class LogIOLogger: DDAbstractLogger {
     func connect() {
         tag = 0
         do {
-            print("Connecting to \(host):\(port)")
+            os_log("[LogIO] Connecting to %@:%d", type: .info, host, port)
             try socket.connect(toHost: host, onPort: port, withTimeout: timeout)
             connected()
         } catch let error {
-            print("Could not connect \(error)")
+            os_log("[LogIO] Could not connect %@", type: .info, error.localizedDescription)
         }
     }
 
@@ -55,13 +56,15 @@ public class LogIOLogger: DDAbstractLogger {
 
     public func send(message input: String) {
         tag += 1
-        print("\(tag) \(input)")
         let message = String(format: Config.messagePattern, stream, node, input)
         let data = message.data(using: .utf8)
         socket.write(data, withTimeout: timeout, tag: tag)
     }
 
     public override func log(message logMessage: DDLogMessage) {
-        send(message: logMessage.message)
+        var formatter: DDLogFormatter? = self.value(forKey: "_logFormatter") as? DDLogFormatter
+        let message = formatter?.format(message: logMessage) ?? logMessage.message
+
+        send(message: message)
     }
 }
