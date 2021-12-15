@@ -19,6 +19,7 @@ private enum Config {
 public class LogIOLogger: DDAbstractLogger {
     private let host: String
     private let port: UInt16
+    private let interface: String
     private let node: String
     private let stream: String
     private let timeout: TimeInterval
@@ -28,9 +29,10 @@ public class LogIOLogger: DDAbstractLogger {
         return GCDAsyncSocket(delegate: self, delegateQueue: .main)
     }()
 
-    public init(host: String, port: Int, node: String, stream: String, timeout: TimeInterval = 5) {
+    public init(host: String, port: Int, interface: String = "en0", node: String, stream: String, timeout: TimeInterval = 5) {
         self.host = host
         self.port = UInt16(port)
+        self.interface = interface
         self.node = node
         self.stream = stream
         self.timeout = timeout
@@ -41,8 +43,8 @@ public class LogIOLogger: DDAbstractLogger {
     func connect() {
         tag = 0
         do {
-            os_log("[LogIO] Connecting to %@:%d", type: .info, host, port)
-            try socket.connect(toHost: host, onPort: port, withTimeout: timeout)
+            os_log("[LogIO] Connecting to %@:%@:%d", type: .info, host, interface, port)
+            try socket.connect(toHost: host, onPort: port, viaInterface: interface, withTimeout: timeout)
             connected()
         } catch let error {
             os_log("[LogIO] Could not connect %@", type: .info, error.localizedDescription)
